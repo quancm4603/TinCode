@@ -79,6 +79,29 @@ public class WordService {
         return word;
     }
 
+    // Lấy danh sách từ từ cơ sở dữ liệu dựa trên từ khóa
+    public List<Word> getWordByKeyword(String keyword) throws SQLException {
+        List<Word> words = new ArrayList<>();
+        String searchQuery = "SELECT * FROM words WHERE word LIKE ? OR definition LIKE ? OR original LIKE ? OR example LIKE ?";
+        try (Connection connection = getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(searchQuery)) {
+            String searchParam = "%" + keyword + "%";
+            for (int i = 1; i <= 4; i++) {
+                preparedStatement.setString(i, searchParam);
+            }
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String word = rs.getString("word");
+                String definition = rs.getString("definition");
+                String original = rs.getString("original");
+                String example = rs.getString("example");
+                words.add(new Word(id, word, definition, original, example));
+            }
+        }
+        return words;
+    }
+
     // Lấy danh sách tất cả các từ từ cơ sở dữ liệu
     public List<Word> getAllWords() throws SQLException {
         List<Word> words = new ArrayList<>();

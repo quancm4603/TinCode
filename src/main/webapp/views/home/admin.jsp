@@ -1,22 +1,27 @@
 <%-- 
-    Document   : create-word
-    Created on : Nov 25, 2023, 6:27:31 PM
+    Document   : admin
+    Created on : Nov 25, 2023, 8:16:09 PM
     Author     : caomi
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="com.quancm.tincode.models.Word"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html data-bs-theme="light" lang="en" data-bss-forced-theme="light">
+<html data-bs-theme="light" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Tạo từ mới</title>
+    <title>TeenDict Admin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Averia+Serif+Libre&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/css/styles.min.css">
+    <%
+        List<Word> words = (List<Word>)request.getAttribute("words");
+    %>
 </head>
 
 <body style="background: linear-gradient(90deg, #FCF5EC, #BDDFF6);">
@@ -25,61 +30,50 @@
             <div class="container-fluid"><a class="navbar-brand fs-1" href="./" style="width: 10%;font-weight: bold;font-size: 23px;text-align: center;">TeenDict</a>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="navbar-nav justify-content-between ms-auto" style="width: 50%;margin-left: -7.4219px;height: 100%;">
-                        <li class="nav-item" style="width: 30%;height: 100%;margin-right: 0px;"></li>
-                        <li class="nav-item" style="width: 30%;height: 100%;margin-right: 0px;"></li>
-                        <li class="nav-item" style="width: 30%;height: 100%;"><a class="btn btn-dark text-center" role="button" style="padding: 0;padding-top: 10px;padding-bottom: 10px;border-width: 1px;height: 100%;width: 100%;margin: 0px;font-size: 14px;line-height: 20px;letter-spacing: 1px;" href="./logout">Đăng Xuất</a></li>
+                        <li class="nav-item" style="width: 30%;height: 100%;margin-right: 0px;"><a class="btn btn-outline-dark active" role="button" id="button-addon-4" style="height: 100%;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: 100%;padding-top: 10px;padding-bottom: 10px;" href="./admin">Quản lí từ</a></li>
+                        <li class="nav-item" style="width: 30%;height: 100%;margin-right: 0px;"><a class="btn btn-outline-dark active" role="button" id="button-addon-3" style="height: 100%;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: 100%;padding-top: 10px;padding-bottom: 10px;" href="./create-word">Tạo từ</a></li>
+                        <li class="nav-item" style="width: 30%;height: 100%;"><a class="btn btn-outline-dark active" role="button" id="button-addon-2" style="height: 100%;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: 100%;padding-top: 10px;padding-bottom: 10px;" href="./logout">Đăng xuất</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div style="width:100%;height:100%;">
-        <div class="container-fluid" style="width: 100%;max-width: 60%;padding: 0;padding-top: 15px;padding-bottom: 15px;height: 100%;">
-            <h2>${status}</h2>
-            <form method="post" style="width:100%;height:100%;">
-                <div class="card shadow mb-3" style="width: 100%;height: 100%;margin: 0;">
-                    <div class="card-header py-3" style="width: 100%;height: 100%;padding: 0;">
-                        <p class="fs-4 fw-bolder text-start text-primary m-0 fw-bold">Tạo từ mới</p>
-                    </div>
-                    <div class="card-body" style="width: 100%;height: 100%;min-height: 0px;padding: 0;margin: 0;">
-                        <div class="row" style="width: 100%;margin: 2px;padding: 0;">
-                            <div class="col-sm-12 col-md-8 col-lg-8 col-xxl-8" style="transform: scale(1);width: 100%;">
-                                <div class="mb-3">
-                                    <label class="form-label form-label" for="service_name"><strong>Keyword *</strong></label>
-                                    <input class="form-control form-control" type="text" id="service_name-2" name="word" placeholder="Nhập keyword" required="" style="border-color:rgb(0,0,0);color:rgb(0,0,0);">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" style="width: 100%;margin: 2px;padding: 0;">
-                            <div class="col-sm-12 col-md-8 col-lg-8 col-xxl-8" style="transform: scale(1);width: 100%;">
-                                <div class="mb-3" style="width: 100%;margin: 2px;padding: 0;">
-                                    <label class="form-label form-label" for="client_description"><strong>Định nghĩa *</strong></label>
-                                    <textarea class="form-control form-control" id="service_description-1" name="definition" placeholder="Nhập định nghĩa" required="" rows="4" style="color: rgb(0,0,0);height: 100px;width: 100%;border-color: rgb(0,0,0);"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" style="width: 100%;margin: 2px;padding: 0;">
-                            <div class="col-sm-12 col-md-8 col-lg-8 col-xxl-8" style="transform: scale(1);width: 100%;">
-                                <div class="mb-3">
-                                    <label class="form-label form-label" for="service_name"><strong>Nguồn gốc *</strong></label>
-                                    <input class="form-control form-control" type="text" id="service_name-1" name="original" placeholder="Nhập nguồn gốc" required="" style="border-color:rgb(0,0,0);color:rgb(0,0,0);">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="width: 100%;margin: 2px;padding: 0;">
-                        <div class="col-sm-12 col-md-8 col-lg-8 col-xxl-8" style="transform: scale(1);width: 100%;">
-                            <div class="mb-3" style="width: 100%;margin: 2px;padding: 0;">
-                                <label class="form-label form-label" for="client_description"><strong>Ví dụ *</strong></label>
-                                <textarea class="form-control form-control" id="service_description-2" name="example" placeholder="Nhập ví dụ" required="" rows="4" style="color: rgb(0,0,0);height: 100px;width: 100%;border-color: rgb(0,0,0);"></textarea>
-                            </div>
-                        </div>
-                    </div>
+    <section class="position-relative py-4 py-xl-5" style="height: auto;">
+        <div class="container" style="width: 70%;height: auto;">
+            <div class="card mb-5" style="width: 100%;height: 100%;">
+                <div class="card-body d-flex flex-column align-items-center" style="padding: 0px;padding-bottom: 47px;box-shadow: 0px 0px 10px;width: 100%;height: 100%;">
+                    <ul class="nav nav-tabs" style="width: 90%;padding-top: 20px;">
+                        <li class="nav-item justify-content-between" style="width: 100%;">
+                            <form method="post" class="input-group justify-content-around me-auto mb-3" style="margin: 0px;width: 100%;height: 100%;">
+                                <input name="keyword" class="form-control form-control" type="text" placeholder="Tìm kiếm trên TeenDict" aria-label="Search" aria-describedby="button-addon2" style="height: 100%;color: rgb(0,0,0);width: 60%;border-width: 1px;border-color: rgb(0,0,0);border-radius: 6px;">
+                                <button class="btn btn-outline-dark active" type="submit" id="button-addon-1" style="height: 100%;padding: 4px 24px;border-style: solid;backdrop-filter: opacity(1);width: 30%;">Tìm kiếm</button>
+                            </form>
+                        </li>
+                    </ul>
+                    <%
+                        if(words != null){
+                            for (Word word : words){
+                    %>
+                    <ul class="nav nav-tabs" style="width: 90%;padding-top: 20px;">
+                        <li class="nav-item justify-content-between" style="width: 100%;">
+                            <h4 class="fs-2 fw-bold"><%=word.getWord()%></h4>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-tabs" style="width: 90%;padding-top: 20px;height: 80%;">
+                        <li class="nav-item justify-content-between" style="width: 100%;">
+                            <p class="fs-6 fw-bold"><strong>Định nghĩa:&nbsp;</strong> <%=word.getDefinition()%></p>
+                            <p class="fs-6 fw-bold"><strong>Nguồn gốc: </strong> <%=word.getOriginal()%></p>
+                            <p class="fs-6 fw-bold"><strong>Ví dụ: </strong> <%=word.getExample()%></p>
+                        </li>
+                    </ul>
+                    <%
+                            }
+                        }
+                    %>
                 </div>
-                <div class="text-end mb-3"><button class="btn btn-secondary" type="submit">Tạo từ</button><a class="btn btn-dark" role="button" href="index.html">Huỷ</a></div>
-            </form>
+            </div>
         </div>
-    </div>
+    </section>
     <footer class="text-center fixed-bottom-footer" style="background: linear-gradient(90deg, #FCF5EC, #BDDFF6);">
         <div class="container text-muted py-4 py-lg-5" style="padding: 0px 12px;">
             <ul class="list-inline">
