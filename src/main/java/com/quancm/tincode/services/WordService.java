@@ -4,13 +4,13 @@ package com.quancm.tincode.services;
  *
  * @author caomi
  */
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import com.quancm.tincode.models.Word;
 
 public class WordService {
+
     private final String jdbcURL = "jdbc:mysql://localhost:3306/tincode"; // Thay đổi URL của cơ sở dữ liệu của bạn
     private final String jdbcUsername = "root"; // Thay đổi username của cơ sở dữ liệu của bạn
     private final String jdbcPassword = "123456"; // Thay đổi mật khẩu của cơ sở dữ liệu của bạn
@@ -21,7 +21,8 @@ public class WordService {
     private static final String DELETE_WORD_SQL = "DELETE FROM words WHERE id = ?";
     private static final String UPDATE_WORD_SQL = "UPDATE words SET word = ?, definition = ?, original = ?, example = ? WHERE id = ?";
 
-    public WordService() {}
+    public WordService() {
+    }
 
     // Tạo kết nối đến cơ sở dữ liệu
     private Connection getConnection() throws SQLException {
@@ -35,23 +36,36 @@ public class WordService {
         return connection;
     }
 
-    // Thêm một từ vào cơ sở dữ liệu
-    public void addWord(Word word) throws SQLException {
+    // Thêm một từ vào cơ sở dữ liệu và trả về ID của từ vừa được thêm vào
+    public int addWord(Word word) throws SQLException {
+        int generatedId = -1; // Initialize with an invalid ID
+
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_WORD_SQL)) {
+                PreparedStatement preparedStatement = connection.prepareStatement(INSERT_WORD_SQL, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, word.getWord());
             preparedStatement.setString(2, word.getDefinition());
             preparedStatement.setString(3, word.getOriginal());
             preparedStatement.setString(4, word.getExample());
-            preparedStatement.executeUpdate();
+
+            int affectedRows = preparedStatement.executeUpdate();
+
+            if (affectedRows > 0) {
+                // Retrieve the generated ID of the inserted word
+                try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        generatedId = generatedKeys.getInt(1);
+                    }
+                }
+            }
         }
+        return generatedId;
     }
 
     // Lấy một từ từ cơ sở dữ liệu dựa trên ID
     public Word getWordById(int id) throws SQLException {
         Word word = null;
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_WORD_BY_ID)) {
+                PreparedStatement preparedStatement = connection.prepareStatement(SELECT_WORD_BY_ID)) {
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
@@ -69,7 +83,7 @@ public class WordService {
     public List<Word> getAllWords() throws SQLException {
         List<Word> words = new ArrayList<>();
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_WORDS)) {
+                PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_WORDS)) {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
@@ -87,7 +101,7 @@ public class WordService {
     public boolean deleteWord(int id) throws SQLException {
         boolean rowDeleted;
         try (Connection connection = getConnection();
-             PreparedStatement statement = connection.prepareStatement(DELETE_WORD_SQL)) {
+                PreparedStatement statement = connection.prepareStatement(DELETE_WORD_SQL)) {
             statement.setInt(1, id);
             rowDeleted = statement.executeUpdate() > 0;
         }
@@ -98,7 +112,7 @@ public class WordService {
     public boolean updateWord(Word word) throws SQLException {
         boolean rowUpdated;
         try (Connection connection = getConnection();
-             PreparedStatement statement = connection.prepareStatement(UPDATE_WORD_SQL)) {
+                PreparedStatement statement = connection.prepareStatement(UPDATE_WORD_SQL)) {
             statement.setString(1, word.getWord());
             statement.setString(2, word.getDefinition());
             statement.setString(3, word.getOriginal());
