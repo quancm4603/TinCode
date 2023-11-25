@@ -1,50 +1,79 @@
-<%-- Document : login Created on : Nov 15, 2023, 4:35:50 PM Author : caomi --%>
+<%-- 
+    Document   : admin
+    Created on : Nov 25, 2023, 11:48:07 PM
+    Author     : caomi
+--%>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page import="java.util.List"%>
+<%@page import="com.quancm.tincode.models.Word"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Đăng nhập</title>
+    <title>Quản lý từ Admin</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Averia+Serif+Libre&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/css/styles.min.css">
+    <%
+        List<Word> words = (List<Word>)request.getAttribute("words");
+    %>
 </head>
 
 <body style="background: linear-gradient(90deg, #FCF5EC, #BDDFF6);">
     <header style="background-color: inherit;">
         <nav class="navbar navbar-expand-md bg-body" style="background: linear-gradient(90deg, #FCF5EC, #BDDFF6);">
             <div class="container-fluid"><a class="navbar-brand fs-1" href="./" style="width: 10%;font-weight: bold;font-size: 23px;text-align: center;">TeenDict</a>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="navbar-nav justify-content-between ms-auto" style="width: 50%;margin-left: -7.4219px;height: 100%;">
+                        <li class="nav-item" style="width: 30%;height: 100%;margin-right: 0px;"><a class="btn btn-outline-dark active" role="button" id="button-addon-4" style="height: 100%;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: 100%;padding-top: 10px;padding-bottom: 10px;" href="./admin">Quản lí từ</a></li>
+                        <li class="nav-item" style="width: 30%;height: 100%;margin-right: 0px;"><a class="btn btn-outline-dark active" role="button" id="button-addon-3" style="height: 100%;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: 100%;padding-top: 10px;padding-bottom: 10px;" href="./create-word">Tạo từ</a></li>
+                        <li class="nav-item" style="width: 30%;height: 100%;"><a class="btn btn-outline-dark active" role="button" id="button-addon-2" style="height: 100%;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: 100%;padding-top: 10px;padding-bottom: 10px;" href="./logout">Đăng xuất</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
     <section class="position-relative py-4 py-xl-5" style="height: auto;">
-        <div class="container" style="width: 100vw;height: 100vh;">
-            <div class="row mb-5">
-                <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2 style="font-weight: bold;font-size: 26px;">Đăng nhập</h2>
-                    <p class="w-lg-50">Vui lòng đăng nhập trước khi đăng tin.</p>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center">
-                <div class="col-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 offset-0 offset-xl-0">
-                    <div class="card mb-5" style="width: 100%;height: 100%;">
-                        <div class="card-body d-flex flex-column align-items-center" style="padding: 0px;padding-bottom: 47px;box-shadow: 0px 0px 10px;width: 100%;height: 100%;">
-                            <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person">
-                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"></path>
-                                </svg></div>
-                            <form class="text-center" method="post" style="width: 60%;height: 100%;">
-                                <div class="mb-3" style="width: 100%;"><input class="form-control" type="text" placeholder="Email or Username" required="" name="username" style="border-color: rgb(0,0,0);"></div>
-                                <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password" required="" style="width: 100%;border-color: rgb(0,0,0);"></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1" name="remember"><label class="form-check-label" for="formCheck-1">Ghi nhớ đăng nhập</label></div>
-                                <div class="mb-3" style="width: 100%;"><button class="btn btn-primary d-block w-100" type="submit">Login</button></div>
-                                <p class="text-muted" style="text-align: left;color: #55595c;width: 100%;">Chưa có tài khoản?&nbsp;<a style="color: rgba(26,26,26,0.58);" href="register.html">Đăng ký tài khoản mới</a></p>
+        <div class="container" style="width: 70%;height: auto;">
+            <div class="card mb-5" style="width: 100%;height: 100%;">
+                <div class="card-body d-flex flex-column align-items-center" style="padding: 0px;padding-bottom: 47px;box-shadow: 0px 0px 10px;width: 100%;height: 100%;">
+                    <ul class="nav nav-tabs" style="width: 90%;padding-top: 20px;">
+                        <li class="nav-item justify-content-between" style="width: 100%;">
+                            <form method="post" class="input-group justify-content-around me-auto mb-3" style="margin: 0px;width: 100%;height: 100%;">
+                                <input name="keyword" class="form-control form-control" type="text" placeholder="Tìm kiếm trên TeenDict" aria-label="Search" aria-describedby="button-addon2" style="height: 100%;color: rgb(0,0,0);width: 60%;border-width: 1px;border-color: rgb(0,0,0);border-radius: 6px;">
+                                <button class="btn btn-outline-dark active" type="submit" id="button-addon-1" style="height: 100%;padding: 4px 24px;border-style: solid;backdrop-filter: opacity(1);width: 30%;">Tìm kiếm</button>
                             </form>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
+                    <%
+                        if(words != null){
+                            for (Word word : words){
+                    %>
+                    <ul class="nav nav-tabs" style="width: 90%;padding-top: 20px;">
+                        <li class="nav-item justify-content-start" style="width: 100%;">
+                            <h4 class="fs-2 fw-bold d-inline-block float-start" style="width: 60%;margin: 0;"><%=word.getWord()%></h4>
+                            <div class="d-inline-block" style="width: 40%;">
+                                <a class="btn btn-danger d-inline-block float-end" role="button" style="width: auto;max-width: 100px;height: auto;margin: 0px;margin-left: 12px;" href="./delete?id=<%=word.getId()%>">Xóa</a>
+                                <a class="btn btn-primary d-inline-block float-end" role="button" style="width: auto;max-width: 100px;height: auto;margin: 0px;margin-left: 12px;" href="./edit?id=<%=word.getId()%>">Sửa</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-tabs" style="width: 90%;padding-top: 20px;height: 80%;">
+                        <li class="nav-item justify-content-between" style="width: 100%;">
+                            <p class="fs-6 fw-bold"><strong>Định nghĩa:&nbsp;</strong> <%=word.getDefinition()%></p>
+                            <p class="fs-6 fw-bold"><strong>Nguồn gốc: </strong> <%=word.getOriginal()%></p>
+                            <p class="fs-6 fw-bold"><strong>Ví dụ: </strong> <%=word.getExample()%></p>
+                        </li>
+                    </ul>
+                    <%
+                            }
+                        }
+                    %>
                 </div>
             </div>
         </div>

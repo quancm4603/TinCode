@@ -4,6 +4,7 @@
     Author     : caomi
 --%>
 
+<%@page import="com.quancm.tincode.models.Word"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,11 +13,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Tạo từ mới</title>
+    <title>Sửa từ</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Averia+Serif+Libre&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/css/styles.min.css">
+    <%
+        Word word = (Word)request.getAttribute("word");
+    %>
 </head>
 
 <body style="background: linear-gradient(90deg, #FCF5EC, #BDDFF6);">
@@ -39,14 +43,14 @@
             <form method="post" style="width:100%;height:100%;">
                 <div class="card shadow mb-3" style="width: 100%;height: 100%;margin: 0;">
                     <div class="card-header py-3" style="width: 100%;height: 100%;padding: 0;">
-                        <p class="fs-4 fw-bolder text-start text-primary m-0 fw-bold">Tạo từ mới</p>
+                        <p class="fs-4 fw-bolder text-start text-primary m-0 fw-bold">Sửa từ</p>
                     </div>
                     <div class="card-body" style="width: 100%;height: 100%;min-height: 0px;padding: 0;margin: 0;">
                         <div class="row" style="width: 100%;margin: 2px;padding: 0;">
                             <div class="col-sm-12 col-md-8 col-lg-8 col-xxl-8" style="transform: scale(1);width: 100%;">
                                 <div class="mb-3">
                                     <label class="form-label form-label" for="service_name"><strong>Keyword *</strong></label>
-                                    <input class="form-control form-control" type="text" id="service_name-2" name="word" placeholder="Nhập keyword" required="" style="border-color:rgb(0,0,0);color:rgb(0,0,0);">
+                                    <input value="<%=word.getWord()%>" class="form-control form-control" type="text" id="service_name-2" name="word" placeholder="Nhập keyword" required="" style="border-color:rgb(0,0,0);color:rgb(0,0,0);">
                                 </div>
                             </div>
                         </div>
@@ -54,7 +58,7 @@
                             <div class="col-sm-12 col-md-8 col-lg-8 col-xxl-8" style="transform: scale(1);width: 100%;">
                                 <div class="mb-3" style="width: 100%;margin: 2px;padding: 0;">
                                     <label class="form-label form-label" for="client_description"><strong>Định nghĩa *</strong></label>
-                                    <textarea class="form-control form-control" id="service_description-1" name="definition" placeholder="Nhập định nghĩa" required="" rows="4" style="color: rgb(0,0,0);height: 100px;width: 100%;border-color: rgb(0,0,0);"></textarea>
+                                    <textarea class="form-control form-control" id="service_description-1" name="definition" placeholder="Nhập định nghĩa" required="" rows="4" style="color: rgb(0,0,0);height: 100px;width: 100%;border-color: rgb(0,0,0);"><%=word.getDefinition()%></textarea>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +66,7 @@
                             <div class="col-sm-12 col-md-8 col-lg-8 col-xxl-8" style="transform: scale(1);width: 100%;">
                                 <div class="mb-3">
                                     <label class="form-label form-label" for="service_name"><strong>Nguồn gốc *</strong></label>
-                                    <input class="form-control form-control" type="text" id="service_name-1" name="original" placeholder="Nhập nguồn gốc" required="" style="border-color:rgb(0,0,0);color:rgb(0,0,0);">
+                                    <input value="<%=word.getOriginal()%>" class="form-control form-control" type="text" id="service_name-1" name="original" placeholder="Nhập nguồn gốc" required="" style="border-color:rgb(0,0,0);color:rgb(0,0,0);">
                                 </div>
                             </div>
                         </div>
@@ -71,7 +75,7 @@
                         <div class="col-sm-12 col-md-8 col-lg-8 col-xxl-8" style="transform: scale(1);width: 100%;">
                             <div class="mb-3" style="width: 100%;margin: 2px;padding: 0;">
                                 <label class="form-label form-label" for="client_description"><strong>Ví dụ *</strong></label>
-                                <textarea class="form-control form-control" id="service_description-2" name="example" placeholder="Nhập ví dụ" required="" rows="4" style="color: rgb(0,0,0);height: 100px;width: 100%;border-color: rgb(0,0,0);"></textarea>
+                                <textarea class="form-control form-control" id="service_description-2" name="example" placeholder="Nhập ví dụ" required="" rows="4" style="color: rgb(0,0,0);height: 100px;width: 100%;border-color: rgb(0,0,0);"><%=word.getExample()%></textarea>
                             </div>
                         </div>
                     </div>

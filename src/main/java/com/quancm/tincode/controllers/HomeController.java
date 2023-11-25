@@ -34,7 +34,7 @@ public class HomeController extends HttpServlet {
 
         HttpSession session = request.getSession(false);
         if (session != null && session.getAttribute("user") != null) {
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/home/admin.jsp");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/home/admin-home.jsp");
             requestDispatcher.forward(request, response);
         } else {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/home/index.jsp");
@@ -62,7 +62,7 @@ public class HomeController extends HttpServlet {
 
             HttpSession session = request.getSession(false);
             if (session != null && session.getAttribute("user") != null) {
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/home/admin.jsp");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/home/admin-home.jsp");
                 requestDispatcher.forward(request, response);
             } else {
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/home/index.jsp");
