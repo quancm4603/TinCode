@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Tạo từ mới</title>
+    <title>Đóng góp từ mới</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Averia+Serif+Libre&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -40,7 +40,7 @@
             <form method="post" style="width:100%;height:100%;">
                 <div class="card shadow mb-3" style="width: 100%;height: 100%;margin: 0;">
                     <div class="card-header py-3" style="width: 100%;height: 100%;padding: 0;">
-                        <p class="fs-4 fw-bolder text-start text-primary m-0 fw-bold">Tạo từ mới</p>
+                        <p class="fs-4 fw-bolder text-start text-primary m-0 fw-bold">Đóng góp từ mới</p>
                     </div>
                     <div class="card-body" style="width: 100%;height: 100%;min-height: 0px;padding: 0;margin: 0;">
                         <div class="row" style="width: 100%;margin: 2px;padding: 0;">
@@ -77,7 +77,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-end mb-3"><button class="btn btn-secondary" type="submit">Tạo từ</button><a class="btn btn-dark" role="button" href="./">Huỷ</a></div>
+                <div class="text-end mb-3"><button class="btn btn-secondary" type="submit">Đóng góp</button><a class="btn btn-dark" role="button" href="./">Huỷ</a></div>
             </form>
         </div>
     </div>

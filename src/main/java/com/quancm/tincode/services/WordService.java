@@ -82,7 +82,7 @@ public class WordService {
     // Lấy danh sách từ từ cơ sở dữ liệu dựa trên từ khóa
     public List<Word> getWordByKeyword(String keyword) throws SQLException {
         List<Word> words = new ArrayList<>();
-        String searchQuery = "SELECT * FROM words WHERE word LIKE ?";
+        String searchQuery = "SELECT * FROM words WHERE word COLLATE utf8mb4_unicode_ci LIKE ?";
         try (Connection connection = getConnection();
                 PreparedStatement preparedStatement = connection.prepareStatement(searchQuery)) {
             String searchParam = "%" + keyword + "%";
