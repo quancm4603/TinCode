@@ -28,12 +28,13 @@
         <header style="background-color: inherit;">
             <nav class="navbar navbar-expand-md bg-body" style="background: linear-gradient(90deg, #FCF5EC, #BDDFF6);">
                 <div class="container-fluid"><a class="navbar-brand fs-1" href="./" style="width: 10%;font-weight: bold;font-size: 23px;text-align: center;">TeenDict</a>
+                    <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navcol-1">
-                        <ul class="navbar-nav justify-content-between ms-auto" style="width: 50%;margin-left: -7.4219px;height: 100%;">
-                            <li class="nav-item" style="width: 20%;height: 100%;margin-right: 0px;"><a class="btn btn-outline-dark active" role="button" id="button-addon-4" style="height: 100%;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: 100%;padding-top: 10px;padding-bottom: 10px;" href="./pending">Duyệt từ</a></li>
-                            <li class="nav-item" style="width: 20%;height: 100%;margin-right: 0px;"><a class="btn btn-outline-dark active" role="button" id="button-addon-4" style="height: 100%;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: 100%;padding-top: 10px;padding-bottom: 10px;" href="./admin">Quản lí từ</a></li>
-                            <li class="nav-item" style="width: 20%;height: 100%;margin-right: 0px;"><a class="btn btn-outline-dark active" role="button" id="button-addon-3" style="height: 100%;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: 100%;padding-top: 10px;padding-bottom: 10px;" href="./create-word">Tạo từ</a></li>
-                            <li class="nav-item" style="width: 20%;height: 100%;"><a class="btn btn-outline-dark active" role="button" id="button-addon-2" style="height: 100%;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: 100%;padding-top: 10px;padding-bottom: 10px;" href="./logout">Đăng xuất</a></li>
+                        <ul class="navbar-nav justify-content-between ms-auto" style="width: 50%;margin-left: 5px;height: auto;">
+                            <li class="nav-item" style="min-width: 20%;height: auto;margin-right: 0px;"><a class="btn btn-outline-dark active" role="button" id="button-addon-4" style="height: auto;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: auto;padding: 10px;" href="./pending">Duyệt từ</a></li>
+                            <li class="nav-item" style="min-width: 20%;height: auto;margin-right: 0px;"><a class="btn btn-outline-dark active" role="button" id="button-addon-4" style="height: auto;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: auto;padding: 10px;" href="./admin">Quản lí từ</a></li>
+                            <li class="nav-item" style="min-width: 20%;height: auto;margin-right: 0px;"><a class="btn btn-outline-dark active" role="button" id="button-addon-3" style="height: auto;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: auto;padding: 10px;" href="./create-word">Tạo từ</a></li>
+                            <li class="nav-item" style="min-width: 20%;height: auto;"><a class="btn btn-outline-dark active" role="button" id="button-addon-2" style="height: auto;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: auto;padding: 10px;" href="./logout">Đăng xuất</a></li>
 
                         </ul>
                     </div>
@@ -44,24 +45,26 @@
             <div class="container" style="width: 70%;height: auto;">
                 <div class="card mb-5" style="width: 100%;height: 100%;">
                     <div class="card-body d-flex flex-column align-items-center" style="padding: 0px;padding-bottom: 47px;box-shadow: 0px 0px 10px;width: 100%;height: 100%;">
-                        <ul class="nav nav-tabs" style="width: 90%;padding-top: 20px;">
-                            <li class="nav-item justify-content-between" style="width: 100%;">
+                        <ul class="nav nav-tabs" style="width: 90%;padding-top: 20px;height: 70px;">
+                            <li class="nav-item justify-content-between" style="width: 100%;height: 100%;">
                                 <form method="post" class="input-group justify-content-around me-auto mb-3" style="margin: 0px;width: 100%;height: 100%;">
-                                    <input name="keyword" class="form-control form-control" type="text" placeholder="Tìm kiếm trên TeenDict" aria-label="Search" aria-describedby="button-addon2" style="height: 100%;color: rgb(0,0,0);width: 60%;border-width: 1px;border-color: rgb(0,0,0);border-radius: 6px;">
-                                    <button class="btn btn-outline-dark active" type="submit" id="button-addon-1" style="height: 100%;padding: 4px 24px;border-style: solid;backdrop-filter: opacity(1);width: 30%;">Tìm kiếm</button>
-                                </form>
+                                    <input name="keyword" class="form-control form-control" type="text" placeholder="Tìm kiếm trên TeenDict" aria-label="Search" aria-describedby="button-addon2" style="height: 100%;color: rgb(0,0,0);width: 60%;border-width: 1px;border-color: rgb(0,0,0);border-radius: 6px;font-size: 0.9em;">
+                                    <button class="btn btn-outline-dark active" type="submit" id="button-addon-4" style="height: 100%;padding: 4px 24px;border-style: solid;backdrop-filter: opacity(1);width: 30%;font-size: 0.9em;white-space: nowrap; /* Ngăn chữ tràn dòng */
+                                            overflow: hidden;
+                                            text-overflow: ellipsis; /* Hiển thị dấu ba chấm (...) nếu chữ tràn ra ngoài */">Tìm kiếm</button>
+                                    </div>
                             </li>
                         </ul>
                         <%
                             if (words != null) {
                                 for (Word word : words) {
                         %>
-                        <ul class="nav nav-tabs" style="width: 90%;padding-top: 20px;">
+                        <ul class="nav nav-tabs" style="margin-left: 10px;width: 90%;padding-top: 20px;">
                             <li class="nav-item justify-content-between" style="width: 100%;">
                                 <h4 class="fs-2 fw-bold"><%=word.getWord()%></h4>
                             </li>
                         </ul>
-                        <ul class="nav nav-tabs" style="width: 90%;padding-top: 20px;height: 80%;">
+                        <ul class="nav nav-tabs" style="margin-left: 10px;width: 90%;padding-top: 20px;height: 80%;">
                             <li class="nav-item justify-content-between" style="width: 100%;">
                                 <p class="fs-6 fw-bold"><strong>Định nghĩa:&nbsp;</strong> <%=word.getDefinition()%></p>
                                 <p class="fs-6 fw-bold"><strong>Nguồn gốc: </strong> <%=word.getOriginal()%></p>

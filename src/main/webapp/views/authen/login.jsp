@@ -18,6 +18,7 @@
     <header style="background-color: inherit;">
         <nav class="navbar navbar-expand-md bg-body" style="background: linear-gradient(90deg, #FCF5EC, #BDDFF6);">
             <div class="container-fluid"><a class="navbar-brand fs-1" href="./" style="width: 10%;font-weight: bold;font-size: 23px;text-align: center;">TeenDict</a>
+                <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             </div>
         </nav>
     </header>
