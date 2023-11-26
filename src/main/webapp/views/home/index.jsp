@@ -30,9 +30,9 @@
             <div class="container-fluid"><a class="navbar-brand fs-1" href="./" style="width: 10%;font-weight: bold;font-size: 23px;text-align: center;">TeenDict</a>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="navbar-nav justify-content-between ms-auto" style="width: 50%;margin-left: -7.4219px;height: 100%;">
-                        <li class="nav-item" style="width: 30%;height: 100%;margin-right: 0px;"></li>
-                        <li class="nav-item" style="width: 30%;height: 100%;margin-right: 0px;"><a class="btn btn-outline-dark active" role="button" id="button-addon-3" style="height: 100%;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: 100%;padding-top: 10px;padding-bottom: 10px;" href="./create-word">Đóng góp</a></li>
-                        <li class="nav-item" style="width: 30%;height: 100%;"><a class="btn btn-outline-dark active" role="button" id="button-addon-2" style="height: 100%;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: 100%;padding-top: 10px;padding-bottom: 10px;" href="./login">Đăng nhập</a></li>
+                        <li class="nav-item" style="width: 20%;height: 100%;margin-right: 0px;"></li>
+                        <li class="nav-item" style="width: 20%;height: 100%;margin-right: 0px;"><a class="btn btn-outline-dark active" role="button" id="button-addon-3" style="height: 100%;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: 100%;padding-top: 10px;padding-bottom: 10px;" href="./contribute">Đóng góp</a></li>
+                        <li class="nav-item" style="width: 20%;height: 100%;"><a class="btn btn-outline-dark active" role="button" id="button-addon-2" style="height: 100%;padding: 0;border-style: solid;backdrop-filter: opacity(1);width: 100%;padding-top: 10px;padding-bottom: 10px;" href="./login">Đăng nhập</a></li>
                     </ul>
                 </div>
             </div>

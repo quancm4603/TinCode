@@ -2,9 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.quancm.tincode.controllers;
+package com.quancm.tincode.controllers.user;
 
+import com.quancm.tincode.controllers.admin.CreateWordController;
 import com.quancm.tincode.models.Word;
+import com.quancm.tincode.services.PendingWordService;
+import com.quancm.tincode.services.PendingWordServiceSingleton;
 import com.quancm.tincode.services.WordService;
 import com.quancm.tincode.services.WordServiceSingleton;
 import java.io.IOException;
@@ -22,15 +25,14 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author caomi
  */
-@WebServlet(name = "CreateWordController", urlPatterns = {"/create-word", "/tao-tu"})
-public class CreateWordController extends HttpServlet {
+@WebServlet(name = "ContributeController", urlPatterns = {"/contribute"})
+public class ContributeController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/word/create-word.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/word/contribute-word.jsp");
         requestDispatcher.forward(request, response);
-
     }
 
     @Override
@@ -48,17 +50,23 @@ public class CreateWordController extends HttpServlet {
             newWord.setDefinition(definition);
             newWord.setOriginal(original);
             newWord.setExample(example);
+            PendingWordService pendingWordService = PendingWordServiceSingleton.getInstance();
             WordService wordService = WordServiceSingleton.getInstance();
-            wordService.addWord(newWord);
+
+            if (wordService.getWordByKeyword(word).isEmpty()) {
+                pendingWordService.addWord(newWord);
+                request.setAttribute("status", "Thêm từ thành công, từ của bạn sẽ được kiểm duyệt, cảm ơn bạn đã đóng góp.");
+            }else{
+                throw new SQLException("Word existed");
+            }
+
             
-            request.setAttribute("status", "Thêm từ thành công");
-            
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(CreateWordController.class.getName()).log(Level.SEVERE, null, ex);
             request.setAttribute("status", "Thêm từ thất bại, từ đã tồn tại.");
         }
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/word/create-word.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/word/contribute-word.jsp");
         requestDispatcher.forward(request, response);
     }
 

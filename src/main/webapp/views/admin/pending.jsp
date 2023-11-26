@@ -41,15 +41,10 @@
     </header>
     <section class="position-relative py-4 py-xl-5" style="height: auto;">
         <div class="container" style="width: 70%;height: auto;">
-            <h2>${status}</h2>
             <div class="card mb-5" style="width: 100%;height: 100%;">
                 <div class="card-body d-flex flex-column align-items-center" style="padding: 0px;padding-bottom: 47px;box-shadow: 0px 0px 10px;width: 100%;height: 100%;">
                     <ul class="nav nav-tabs" style="width: 90%;padding-top: 20px;">
                         <li class="nav-item justify-content-between" style="width: 100%;">
-                            <form method="post" class="input-group justify-content-around me-auto mb-3" style="margin: 0px;width: 100%;height: 100%;">
-                                <input name="keyword" class="form-control form-control" type="text" placeholder="Tìm kiếm trên trang admin" aria-label="Search" aria-describedby="button-addon2" style="height: 100%;color: rgb(0,0,0);width: 60%;border-width: 1px;border-color: rgb(0,0,0);border-radius: 6px;">
-                                <button class="btn btn-outline-dark active" type="submit" id="button-addon-1" style="height: 100%;padding: 4px 24px;border-style: solid;backdrop-filter: opacity(1);width: 30%;">Tìm kiếm</button>
-                            </form>
                         </li>
                     </ul>
                     <%
@@ -60,8 +55,8 @@
                         <li class="nav-item justify-content-start" style="width: 100%;">
                             <h4 class="fs-2 fw-bold d-inline-block float-start" style="width: 60%;margin: 0;"><%=word.getWord()%></h4>
                             <div class="d-inline-block" style="width: 40%;">
-                                <a class="btn btn-danger d-inline-block float-end" role="button" style="width: auto;max-width: 100px;height: auto;margin: 0px;margin-left: 12px;" href="./delete?id=<%=word.getId()%>">Xóa</a>
-                                <a class="btn btn-primary d-inline-block float-end" role="button" style="width: auto;max-width: 100px;height: auto;margin: 0px;margin-left: 12px;" href="./edit?id=<%=word.getId()%>">Sửa</a>
+                                <a class="btn btn-danger d-inline-block float-end" role="button" style="width: auto;max-width: 100px;height: auto;margin: 0px;margin-left: 12px;" href="./delete-pending?id=<%=word.getId()%>">Xóa</a>
+                                <a class="btn btn-primary d-inline-block float-end" role="button" style="width: auto;max-width: 100px;height: auto;margin: 0px;margin-left: 12px;" href="./confirm-pending?id=<%=word.getId()%>">Duyệt</a>
                             </div>
                         </li>
                     </ul>

@@ -1,5 +1,5 @@
 
-package com.quancm.tincode.controllers;
+package com.quancm.tincode.controllers.authen;
 
 import com.quancm.tincode.models.User;
 import com.quancm.tincode.services.UserService;

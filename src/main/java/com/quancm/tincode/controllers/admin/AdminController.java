@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.quancm.tincode.controllers;
+package com.quancm.tincode.controllers.admin;
 
+import com.quancm.tincode.controllers.HomeController;
 import com.quancm.tincode.models.Word;
 import com.quancm.tincode.services.WordService;
 import com.quancm.tincode.services.WordServiceSingleton;
