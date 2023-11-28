@@ -10,20 +10,21 @@ CREATE TABLE `Users`
     `password` VARCHAR(16)  NOT NULL
 );
 
+
 CREATE TABLE `Words`
 (
     `id`          INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `word`        VARCHAR(255) UNIQUE NOT NULL,
-    `definition`  VARCHAR(255) NOT NULL,
-    `original`    VARCHAR(255) NOT NULL,
-    `example` TEXT NOT NULL
+    `definition`  TEXT,
+    `original`    TEXT,
+    `example` TEXT
 );
 
 CREATE TABLE `PendingWords`
 (
     `id`          INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `word`        VARCHAR(255) NOT NULL,
-    `definition`  VARCHAR(255) NOT NULL,
-    `original`    VARCHAR(255),
+    `definition`  TEXT,
+    `original`    TEXT,
     `example` TEXT
 );

@@ -44,6 +44,7 @@
             </nav>
         </header>
         <section class="position-relative py-4 py-xl-5" style="height: auto;">
+            <h2>${status}</h2>
             <div class="container" style="width: 70%;height: auto;">
                 <div class="card mb-5" style="width: 100%;height: 100%;">
                     <div class="card-body d-flex flex-column align-items-center" style="padding: 0px;padding-bottom: 47px;box-shadow: 0px 0px 10px;width: 100%;height: 100%;">

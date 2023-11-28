@@ -65,7 +65,7 @@
                             <div class="row" style="width: 100%;margin: 2px;padding: 0;">
                                 <div class="col-sm-12 col-md-8 col-lg-8 col-xxl-8" style="transform: scale(1);width: 100%;">
                                     <div class="mb-3">
-                                        <label class="form-label form-label" for="service_name"><strong>Nguồn gốc *</strong></label>
+                                        <label class="form-label form-label" for="service_name"><strong>Nguồn gốc</strong></label>
                                         <input class="form-control form-control" type="text" id="service_name-1" name="original" placeholder="Nhập nguồn gốc" style="border-color:rgb(0,0,0);color:rgb(0,0,0);">
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
                         <div class="row" style="width: 100%;margin: 2px;padding: 0;">
                             <div class="col-sm-12 col-md-8 col-lg-8 col-xxl-8" style="transform: scale(1);width: 100%;">
                                 <div class="mb-3" style="width: 100%;margin: 2px;padding: 0;">
-                                    <label class="form-label form-label" for="client_description"><strong>Ví dụ *</strong></label>
+                                    <label class="form-label form-label" for="client_description"><strong>Ví dụ</strong></label>
                                     <textarea class="form-control form-control" id="service_description-2" name="example" placeholder="Nhập ví dụ" rows="4" style="color: rgb(0,0,0);height: 100px;width: 100%;border-color: rgb(0,0,0);"></textarea>
                                 </div>
                             </div>

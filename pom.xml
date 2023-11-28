@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.quancm</groupId>
-    <artifactId>TeenDict</artifactId>
+    <artifactId>TiCode</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>TeenDict</name>
+    <name>TiCode</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
