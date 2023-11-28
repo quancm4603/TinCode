@@ -27,7 +27,10 @@
     <body style="background: linear-gradient(90deg, #FCF5EC, #BDDFF6);">
         <header style="background-color: inherit;">
             <nav class="navbar navbar-expand-md bg-body" style="background: linear-gradient(90deg, #FCF5EC, #BDDFF6);">
-                <div class="container-fluid"><a class="navbar-brand fs-1" href="./" style="width: 10%;font-weight: bold;font-size: 23px;text-align: center;">TeenDict</a>
+                <div class="container-fluid">
+                    <a class="navbar-brand fs-1" href="./" style="width: 20%; height: 20vh; font-weight: bold; font-size: 23px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                        <img src="https://lh3.googleusercontent.com/pw/ADCreHdyK3WQYKVu3kBvh2F1Cy5K7OHDEMGj1gwwp8f7rDLetjOqoQvsGb-2XlKRAAe-tSZb05qIpzeQNScc-FMmcQeWQjcYGgnqOsUiLolOhTIwqGQnqpcdm5hn3joEFRKxfBQ81yK2z-Oh7Wzv6modfD8=w950-h950-s-no-gm?authuser=0" style="width: 100%; height: auto; object-fit: cover;">
+                    </a>
                     <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navcol-1">
                         <ul class="navbar-nav justify-content-between ms-auto" style="width: 50%;margin-left: 5px;height: auto;">
